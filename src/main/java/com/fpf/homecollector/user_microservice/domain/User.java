@@ -15,17 +15,23 @@ public class User {
     private String name;
     private LocalDate birthDate;
     private GenderEnum gender;
+    private String email;
 
     public User() {
 
     }
 
-    public User(String username, String password, String name, LocalDate birthDate, GenderEnum gender) {
+    public User(String username, String password, String name, LocalDate birthDate, GenderEnum gender, String email) {
+        this.email = email;
         this.id = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.name = name;
         this.birthDate = birthDate;
         this.gender = gender;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
     }
 }

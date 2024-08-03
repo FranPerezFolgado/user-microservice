@@ -10,7 +10,8 @@ public record CreateUserRequest(
         String password,
         String name,
         LocalDate birthDate,
-        GenderEnum gender
+        GenderEnum gender,
+        String email
 ) {
 
 
@@ -20,7 +21,8 @@ public record CreateUserRequest(
                 this.password,
                 this.name,
                 this.birthDate,
-                this.gender
+                this.gender,
+                this.email
         );
     }
 }

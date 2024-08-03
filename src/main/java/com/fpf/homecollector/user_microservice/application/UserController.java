@@ -5,6 +5,7 @@ import com.fpf.homecollector.user_microservice.application.response.CreateUserRe
 import com.fpf.homecollector.user_microservice.application.response.FindUserResponse;
 import com.fpf.homecollector.user_microservice.application.response.UserMapperUtils;
 import com.fpf.homecollector.user_microservice.domain.service.UserService;
+import com.fpf.homecollector.user_microservice.infrastructure.exception.UserAlreadyExistException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping
-    public CreateUserResponse createUser(@RequestBody CreateUserRequest request) {
-        UUID id = userService.saveUser(request.mapToEntity());
+    public CreateUserResponse createUser(@RequestBody CreateUserRequest request) throws UserAlreadyExistException {
+        UUID id = userService.createUser(request.mapToEntity());
         log.debug("User created: {}", id);
         return new CreateUserResponse(id);
     }

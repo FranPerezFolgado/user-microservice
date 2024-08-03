@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class UserUtils {
 
     public static User createUser() {
-        return new User("test", "pass", "test", LocalDate.now(), GenderEnum.MASCULINE);
+        return new User("test", "pass", "test", LocalDate.now(), GenderEnum.MASCULINE, "test@test.com");
 
     }
 
